@@ -25,6 +25,7 @@ class OrderAPIViewRoot(CreateAPIView, ListAPIView):
     authentication_classes = ()
     permission_classes = ()
     serializer_class = OrderSerializer
+    filterset_fields = ['status', 'user__id']
 
 
 class OrderAPIView(RetrieveDestroyAPIView, UpdateAPIView):
@@ -47,6 +48,8 @@ class OrderFragmentAPIViewRoot(CreateAPIView, ListAPIView):
     authentication_classes = ()
     permission_classes = ()
     serializer_class = OrderFragmentSerializer
+
+    filterset_fields = ['order__id']
 
 
 class OrderFragmentAPIView(RetrieveDestroyAPIView, UpdateAPIView):
