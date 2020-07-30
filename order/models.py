@@ -35,7 +35,7 @@ class Order(models.Model):
 
 class OrderFragment(models.Model):
     quantity = models.IntegerField()
-    Pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE, related_name="pizza_fragment")
+    pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE, related_name="pizza_fragment")
     size = models.IntegerField(choices=PIZZA_SIZE_CHOICES)
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name="fragments")
 
