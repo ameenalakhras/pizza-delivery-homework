@@ -26,7 +26,7 @@ class EditOrderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Order
-        fields = "__all__"
+        exclude = ('user', )
 
     def validate(self, attrs):
 
