@@ -1,4 +1,6 @@
 from rest_framework import serializers, status
+
+from authentication.serializers import UserSerializer
 from order.models import Pizza, Order, OrderFragment
 from pizza_delivery.errors import CustomValidationError
 from django.utils.translation import ugettext_lazy as _
@@ -11,6 +13,7 @@ class PizzaSerializer(serializers.ModelSerializer):
 
 
 class OrderSerializer(serializers.ModelSerializer):
+    user = UserSerializer()
     status_name = serializers.CharField(source='get_status_display', read_only=True)
 
     class Meta:
